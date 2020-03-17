@@ -10,6 +10,14 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/app/dagger-app" />
+            <option value="$PROJECT_DIR$/feature" />
+            <option value="$PROJECT_DIR$/feature/feed" />
+            <option value="$PROJECT_DIR$/feature/lockscreen" />
+            <option value="$PROJECT_DIR$/lib" />
+            <option value="$PROJECT_DIR$/lib/ad" />
+            <option value="$PROJECT_DIR$/lib/apiclient" />
+            <option value="$PROJECT_DIR$/lib/auth" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
