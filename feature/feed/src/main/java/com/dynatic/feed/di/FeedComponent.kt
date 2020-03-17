@@ -6,7 +6,8 @@ import dagger.Subcomponent
 @FeedScope
 @Subcomponent(
     modules = [
-        FeedModule::class
+        FeedModule::class,
+        SubcomponentsModule::class
     ]
 )
 interface FeedComponent {

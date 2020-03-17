@@ -6,7 +6,8 @@ import dagger.Subcomponent
 @LockscreenScope
 @Subcomponent(
     modules = [
-        LockscreenModule::class
+        LockscreenModule::class,
+        SubcomponentsModule::class
     ]
 )
 interface LockscreenComponent {
