@@ -1,11 +1,12 @@
 package com.dynatic.ad
 
 import io.reactivex.Single
+import javax.inject.Inject
 import kotlin.random.Random
 
-class AdUseCase(private val adRepositoryImpl: AdRepository) {
+class AdUseCase @Inject constructor(private val adRepository: AdRepository) {
     fun loadAds(): Single<List<Ad>> {
-        return adRepositoryImpl.loadAds().flatMap {
+        return adRepository.loadAds().flatMap {
             Single.just(
                 listOf(
                     Ad(Random(100).nextLong()),
