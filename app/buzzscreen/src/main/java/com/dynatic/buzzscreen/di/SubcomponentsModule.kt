@@ -1,4 +1,4 @@
-package com.dynatic.honeyscreen.di
+package com.dynatic.buzzscreen.di
 
 import com.dynatic.feed.di.FeedComponent
 import com.dynatic.lockscreen.di.LockscreenComponent
