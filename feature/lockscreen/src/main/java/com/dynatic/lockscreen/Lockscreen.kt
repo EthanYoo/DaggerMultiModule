@@ -21,6 +21,8 @@ class Lockscreen @Inject constructor(
     }
 
     fun inflateView(parentContext: Context): View {
-        return LinearLayout(parentContext)
+        val lockscreenView = LockscreenView(parentContext)
+        lockscreenComponent!!.inject(lockscreenView)
+        return lockscreenView
     }
 }

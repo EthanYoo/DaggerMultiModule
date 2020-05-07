@@ -11,7 +11,6 @@ class Feed @Inject constructor(
     private var feedComponent: FeedComponent? = null
 
     fun init() {
-        // TODO androidx.lifecycle 적용하면 원하는 액티비티나 프레그먼트의 라이프사이클에 FeedComponent 라이프사이클을 연동 할 수 있음
         feedComponent = feedComponentFactory.create()
     }
 

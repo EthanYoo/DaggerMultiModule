@@ -1,11 +1,15 @@
 package com.buzzvil.buzzad_benefit
 
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import com.buzzvil.buzzad_benefit.di.BuzzAdBenefitComponent
 import com.buzzvil.buzzad_benefit.di.DaggerBuzzAdBenefitComponent
 
 class BuzzAdBenefit private constructor(private val context: Context, private val appId: String) {
+    fun showInterstitial(context: Context) {
+        context.startActivity(Intent(context, InterstitialActivity::class.java))
+    }
 
     val buzzAdBenefitComponent: BuzzAdBenefitComponent by lazy {
         DaggerBuzzAdBenefitComponent.factory().create(context)

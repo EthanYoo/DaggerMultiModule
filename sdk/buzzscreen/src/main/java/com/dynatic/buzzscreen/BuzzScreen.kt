@@ -1,6 +1,7 @@
 package com.dynatic.buzzscreen
 
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import com.dynatic.buzzscreen.di.BuzzScreenComponent
 import com.dynatic.buzzscreen.di.DaggerBuzzScreenComponent
@@ -9,6 +10,10 @@ class BuzzScreen private constructor(private val context: Context, private val a
 
     val buzzScreenComponent: BuzzScreenComponent by lazy {
         DaggerBuzzScreenComponent.factory().create(context)
+    }
+
+    fun showLocker(context: Context) {
+        context.startActivity(Intent(context, LockerActivity::class.java))
     }
 
     companion object {

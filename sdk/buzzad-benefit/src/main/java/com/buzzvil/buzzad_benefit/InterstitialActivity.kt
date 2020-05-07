@@ -1,33 +1,32 @@
-package com.dynatic.buzzscreen
+package com.buzzvil.buzzad_benefit
 
 import android.os.Bundle
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
-import com.dynatic.lockscreen.Lockscreen
+import com.dynatic.feed.Feed
 import javax.inject.Inject
 
-class LockerActivity : AppCompatActivity() {
+class InterstitialActivity : AppCompatActivity() {
 
     @Inject
-    lateinit var lockscreen: Lockscreen
+    lateinit var feed: Feed
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        BuzzScreen.getInstance().buzzScreenComponent.inject(this)
+        BuzzAdBenefit.getInstance().buzzAdBenefitComponent.inject(this)
 
         super.onCreate(savedInstanceState)
 
-        lockscreen.init()
+        feed.init()
 
         setContentView(
             LinearLayout(this).apply {
-                addView(lockscreen.inflateView(this@LockerActivity))
+                addView(feed.inflateView(this@InterstitialActivity))
             }
         )
     }
 
     override fun onDestroy() {
-
-        lockscreen.release()
+        feed.release()
 
         super.onDestroy()
     }

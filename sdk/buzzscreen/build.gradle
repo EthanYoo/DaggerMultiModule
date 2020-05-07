@@ -33,6 +33,7 @@ dependencies {
     implementation project(':feature:lockscreen')
     implementation project(':lib:apiclient')
     implementation project(':lib:ad')
+    implementation project(':lib:auth')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
