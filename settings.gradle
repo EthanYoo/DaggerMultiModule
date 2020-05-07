@@ -1,7 +1,10 @@
 rootProject.name = 'DaggerMultiModule'
 include ':app'
 include ':app:honeyscreen'
-include ':app:buzzscreen'
+
+include ':sdk'
+include ':sdk:buzzscreen'
+include ':sdk:buzzad-benefit'
 
 include ':feature'
 include ':feature:lockscreen'
