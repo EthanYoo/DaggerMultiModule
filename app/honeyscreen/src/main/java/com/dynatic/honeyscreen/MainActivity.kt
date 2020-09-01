@@ -15,8 +15,8 @@ class MainActivity : AppCompatActivity() {
             BuzzScreen.getInstance().showLocker(this)
         }
 
-        btnStartInterstitial.setOnClickListener {
-            BuzzAdBenefit.getInstance().showInterstitial(this)
+        btnStartFeed.setOnClickListener {
+            BuzzAdBenefit.getInstance().showFeed(this)
         }
     }
 }

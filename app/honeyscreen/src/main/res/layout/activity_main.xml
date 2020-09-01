@@ -11,7 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Start Locker"
-        app:layout_constraintBottom_toTopOf="@id/btnStartInterstitial"
+        app:layout_constraintBottom_toTopOf="@id/btnStartFeed"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -19,10 +19,10 @@
         app:layout_constraintVertical_chainStyle="packed" />
 
     <Button
-        android:id="@+id/btnStartInterstitial"
+        android:id="@+id/btnStartFeed"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Start Interstitial"
+        android:text="Start Feed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

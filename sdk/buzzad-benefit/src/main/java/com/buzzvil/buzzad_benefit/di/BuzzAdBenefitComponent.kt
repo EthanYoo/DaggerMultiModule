@@ -1,7 +1,9 @@
 package com.buzzvil.buzzad_benefit.di
 
 import android.content.Context
-import com.buzzvil.buzzad_benefit.InterstitialActivity
+import com.buzzvil.buzzad_benefit.BuzzAdBenefit
+import com.dynatic.daggerbase.qualifiers.AppId
+import com.dynatic.feed.di.FeedComponent
 import dagger.BindsInstance
 import dagger.Component
 
@@ -13,12 +15,15 @@ import dagger.Component
     ]
 )
 interface BuzzAdBenefitComponent {
-    fun inject(interstitialActivity: InterstitialActivity)
+    fun inject(buzzAdBenefit: BuzzAdBenefit)
+
+    fun feedComponent(): FeedComponent.Factory
 
     @Component.Factory
     interface Factory {
         fun create(
-            @BindsInstance context: Context
+            @BindsInstance context: Context,
+            @BindsInstance @AppId appId: String
         ): BuzzAdBenefitComponent
     }
 }

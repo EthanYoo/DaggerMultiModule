@@ -1,9 +1,5 @@
 package com.buzzvil.buzzad_benefit.di
 
-import com.dynatic.feed.Feed
-import com.dynatic.feed.di.FeedComponent
-import com.dynatic.lockscreen.Lockscreen
-import com.dynatic.lockscreen.di.LockscreenComponent
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
@@ -29,12 +25,4 @@ object BuzzAdBenefitModule {
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
     }
-
-    @BuzzAdBenefitScope
-    @Provides
-    fun provideFeed(feedComponentFactory: FeedComponent.Factory): Feed = Feed(feedComponentFactory)
-
-    @BuzzAdBenefitScope
-    @Provides
-    fun provideLockscreen(lockscreenComponentFactory: LockscreenComponent.Factory): Lockscreen = Lockscreen(lockscreenComponentFactory)
 }

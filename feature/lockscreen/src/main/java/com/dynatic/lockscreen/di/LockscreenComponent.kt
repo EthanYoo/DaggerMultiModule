@@ -1,6 +1,8 @@
 package com.dynatic.lockscreen.di
 
-import com.dynatic.lockscreen.LockscreenView
+import com.dynatic.daggerbase.qualifiers.UnitId
+import com.dynatic.lockscreen.LockerActivity
+import dagger.BindsInstance
 import dagger.Subcomponent
 
 @LockscreenScope
@@ -11,10 +13,17 @@ import dagger.Subcomponent
     ]
 )
 interface LockscreenComponent {
-    fun inject(lockscreenView: LockscreenView)
+
+    fun inject(lockerActivity: LockerActivity)
 
     @Subcomponent.Factory
     interface Factory {
-        fun create(): LockscreenComponent
+        fun create(
+            @BindsInstance @UnitId unitId: String
+        ): LockscreenComponent
+    }
+
+    interface Provider {
+        fun provideLockscreenComponent(): LockscreenComponent
     }
 }

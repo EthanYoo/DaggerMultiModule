@@ -6,8 +6,7 @@ import dagger.Module
 
 @Module(
     subcomponents = [
-        FeedComponent::class,
-        LockscreenComponent::class
+        FeedComponent::class
     ]
 )
 object SubcomponentsModule

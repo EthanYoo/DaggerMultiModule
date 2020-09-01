@@ -14,6 +14,5 @@ include ':lib'
 include ':lib:auth'
 include ':lib:apiclient'
 include ':lib:ad'
+include ':lib:dagger-base'
 
-include ':core'
-include ':core:dagger-base'

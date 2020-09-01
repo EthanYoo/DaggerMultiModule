@@ -1,9 +1,5 @@
 package com.dynatic.buzzscreen.di
 
-import com.dynatic.feed.Feed
-import com.dynatic.feed.di.FeedComponent
-import com.dynatic.lockscreen.Lockscreen
-import com.dynatic.lockscreen.di.LockscreenComponent
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
@@ -28,12 +24,4 @@ object BuzzScreenModule {
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
     }
-
-    @BuzzScreenScope
-    @Provides
-    fun provideFeed(feedComponentFactory: FeedComponent.Factory): Feed = Feed(feedComponentFactory)
-
-    @BuzzScreenScope
-    @Provides
-    fun provideLockscreen(lockscreenComponentFactory: LockscreenComponent.Factory): Lockscreen = Lockscreen(lockscreenComponentFactory)
 }

@@ -5,17 +5,41 @@ import android.content.Intent
 import android.util.Log
 import com.buzzvil.buzzad_benefit.di.BuzzAdBenefitComponent
 import com.buzzvil.buzzad_benefit.di.DaggerBuzzAdBenefitComponent
+import com.dynatic.daggerbase.Injections
+import com.dynatic.daggerbase.qualifiers.AppId
+import com.dynatic.feed.FeedActivity
+import com.dynatic.feed.di.FeedComponent
+import javax.inject.Inject
 
-class BuzzAdBenefit private constructor(private val context: Context, private val appId: String) {
-    fun showInterstitial(context: Context) {
-        context.startActivity(Intent(context, InterstitialActivity::class.java))
+class BuzzAdBenefit private constructor(context: Context, appId: String) : FeedComponent.Provider {
+
+    private val buzzAdBenefitComponent: BuzzAdBenefitComponent = DaggerBuzzAdBenefitComponent.factory().create(context, appId)
+
+    init {
+        Injections.providerMap[this.hashCode()] = this
+        buzzAdBenefitComponent.inject(this)
     }
 
-    val buzzAdBenefitComponent: BuzzAdBenefitComponent by lazy {
-        DaggerBuzzAdBenefitComponent.factory().create(context)
+    @Inject
+    @AppId
+    lateinit var appId: String
+
+    @Inject
+    lateinit var context: Context
+
+    fun showFeed(context: Context) {
+        context.startActivity(Intent(context, FeedActivity::class.java).also {
+            it.putExtra(Injections.INJECTION_KEY, this.hashCode())
+        })
+    }
+
+    override fun provideFeedComponent(): FeedComponent {
+        val feedUnitId = "222222222222"
+        return buzzAdBenefitComponent.feedComponent().create(feedUnitId)
     }
 
     companion object {
+
         @Volatile
         private var instance: BuzzAdBenefit? = null
 
@@ -26,9 +50,10 @@ class BuzzAdBenefit private constructor(private val context: Context, private va
 
         @JvmStatic
         fun init(context: Context, appId: String): Boolean {
-            Log.d("YYH", "BuzzAdBenefit is initialized")
+            Log.d("BuzzAdBenefit", "BuzzAdBenefit is initialized")
             instance = BuzzAdBenefit(context, appId)
             return true
         }
+
     }
 }

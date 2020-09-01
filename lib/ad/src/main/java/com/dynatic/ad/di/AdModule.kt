@@ -11,13 +11,11 @@ import retrofit2.Retrofit
 @Module(includes = [AdModule.AdBindModule::class])
 object AdModule {
 
-    @AdScope
     @Provides
     fun provideAdServiceApi(retrofit: Retrofit): AdServiceApi = retrofit.create(AdServiceApi::class.java)
 
     @Module
     abstract class AdBindModule {
-        @AdScope
         @Binds
         abstract fun bindAdRepository(adRepositoryImpl: AdRepositoryImpl): AdRepository
     }
