@@ -1,6 +1,7 @@
 package com.dynatic.feed.di
 
 import com.dynatic.ad.di.AdModule
+import com.dynatic.apiclient.di.ApiClientModule
 import com.dynatic.daggerbase.qualifiers.UnitId
 import com.dynatic.feed.FeedActivity
 import dagger.BindsInstance
@@ -10,6 +11,7 @@ import dagger.Subcomponent
 @Subcomponent(
     modules = [
         FeedModule::class,
+        ApiClientModule::class,
         AdModule::class
     ]
 )
